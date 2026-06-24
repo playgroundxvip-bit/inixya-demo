@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: inixya-studio-demo
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ANAM_API_KEY
+        sync: true
+      - key: PERSONA_ID
+        value: 64b5b09e-6898-4f44-a0d6-722851e921c8
