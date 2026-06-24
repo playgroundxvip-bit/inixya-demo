@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom scrollbar for dark cyberpunk aesthetic */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 15, 20, 0.5);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3); /* violet-500 with opacity */
+  border-radius: 4px;
+  border: 1px solid rgba(236, 72, 153, 0.1); /* pink-500 with opacity */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.6);
+}
+
+/* Chat slide-in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Glow effects */
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(168, 85, 247, 0.4), 0 0 12px rgba(168, 85, 247, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.6), 0 0 20px rgba(168, 85, 247, 0.4), 0 0 30px rgba(236, 72, 153, 0.2);
+  }
+}
+
+.animate-neon-text {
+  animation: neonGlow 3s ease-in-out infinite;
+}
+
+/* Pulse live effect */
+@keyframes pulseLive {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+}
+
+.animate-pulse-live {
+  animation: pulseLive 2s infinite;
+}
